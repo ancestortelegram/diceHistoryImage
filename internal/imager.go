@@ -2,7 +2,6 @@ package historyImageMaker
 
 import (
 	"bytes"
-	"fmt"
 	"image"
 	"image/jpeg"
 	"strconv"
@@ -62,7 +61,6 @@ func (pInst *cImageMaker) DrawData() ([]byte, error) {
 
 	wSpan := pInst.imgWidth / pInst.rowCount
 	hSpan := pInst.imgHeight / 6
-	fmt.Println("start pos", startPos, " data count: ", dataLen)
 	for iLoop := startPos; iLoop < pInst.rowCount; iLoop++ {
 		number1 := GetSingleHistoryData().dataList[iLoop-startPos]
 
@@ -95,7 +93,7 @@ func (pInst *cImageMaker) makeBackGround(img1 image.Image) {
 	iTop := (img1.Bounds().Dy() - pInst.imgHeight) / 2
 	//draw.Draw(m, m.Bounds(), img1, image.Point{iLeft, iTop}, draw.Src)
 	//dc.DrawImageAnchored(img1, iLeft, iTop, 0, 0) //float64(pInst.imgWidth), float64(pInst.imgHeight))
-	fmt.Println(iLeft)
+
 	dc.DrawImage(img1, 0-iLeft, 0-iTop)
 	dc.SetRGB(150, 150, 150)
 	hSpan := pInst.imgHeight / 6
