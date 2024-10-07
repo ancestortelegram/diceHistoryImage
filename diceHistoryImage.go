@@ -8,6 +8,6 @@ func DHI_Initialize(imageData []byte, width, height int, rowCount int) error {
 func DHI_PutNumber(value int) {
 	historyImageMaker.GetSingleHistoryData().PutData(value)
 }
-func DHI_DrawData() {
-	historyImageMaker.GetSingleImageMaker().DrawData()
+func DHI_DrawData() ([]byte, error) {
+	return historyImageMaker.GetSingleImageMaker().DrawData()
 }
